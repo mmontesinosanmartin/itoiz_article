@@ -7,10 +7,10 @@ _"Using RGISTools to estimate the water levels in reservoirs, lakes, or floods"_
 
 ## Table of contents
 
- - [Package installation](# Package-installation)
- - [Auxiliary data-sets](# Auxiliary-data-sets)
- - [R code](# R-code)
- - [References](# References)
+ - [Package installation](#Package-installation)
+ - [Auxiliary data-sets](#Auxiliary-data-sets)
+ - [R code](#R-code)
+ - [References](#References)
 
 # Package installation
 
@@ -18,18 +18,19 @@ Install the package `RGISTools` (v1.0.0) (Pérez-Goya et al., 2020)
 running the following command in your `R` console:
 
 ```{r}
-install.packages("RGISTools")
+library(devtools)
+install_version("RGISTools", version = "1.0.0", repos = "http://cran.us.r-project.org")
 ```
 
 Find the manual [here](https://cran.r-project.org/web/packages/RGISTools/RGISTools.pdf).
 
 # Auxiliary data-sets 
 
-Both datasets are available [here](https://github.com/mmontesinosanmartin/itoiz_article/Data):
+Datasets are available [here](https://github.com/mmontesinosanmartin/itoiz_article/tree/master/Data):
 
  - Topographic map of the basin of the reservoir (`altimetry.itoiz`): A
  \texttt{raster} of the terrain's elevation in meters above sea level
- (m.a.s.l.). The `raster` has a resolution of $ 10 \times 10 $ $ m^{2} $
+ (m.a.s.l.). The `raster` has a resolution of 10 \times 10 \quad m^{2}
  and uses the EPSG 4326 coordinate reference system. This data results from
  the rasterization and interpolation of the contour maps available at IDENA's
  website (IDENA, 2019).
@@ -46,23 +47,23 @@ To reproduce the analysis, sign up for the web services of
 Then, replace the strings `"USERNAME"` and `"PASSWORD"` with your
 own credentials in the \texttt{R} code :
 
- 1. [Initialize](https://github.com/mmontesinosanmartin/itoiz_article/R/initialize.R)
+ 1. [Initialize](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/analyze.R)
  the analysis defining the region of interest and loading the auxiliary data-sets  
- 2. [Download](https://github.com/mmontesinosanmartin/itoiz_article/R/download.R) 
+ 2. [Download](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/download.R) 
  surface reflectance imagery from Landsat-8 and Sentinel-2  
- 3. [Customize](https://github.com/mmontesinosanmartin/itoiz_article/R/customize.R) 
+ 3. [Customize](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/customize.R) 
  the satellite imagery by cropping the region of interest  
- 4. [Process](https://github.com/mmontesinosanmartin/itoiz_article/R/process.R) 
+ 4. [Process](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/process.R) 
  the bands to compute the Normalize Difference Water Index (NDWI)(McFeeters, 1996)  
- 5. [Analyze](https://github.com/mmontesinosanmartin/itoiz_article/R/analyze.R)
+ 5. [Analyze](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/analyze.R)
  the NDWI to detect the water body and estimate the water levels  
 
 # References
 
 [CH Ebro (2019), _On-demand data-sets_. Automates Hydrological Information System. Online; accessed 9. Oct. 2019. http://www.saihebro.com/saihebro/](http://www.saihebro.com/saihebro/)
 
-[McFeeters, S. K. (1996). _The use of the Normalized Difference Water Index (NDWI) in the delineation of open water features_. International journal of remote sensing, __17(7)__, 1425-1432.](https://doi.org/10.1080/01431169608948714)
-
 [IDENA (2019), _Web access to geographic information of Navarre_. Government of Navarre. Online; accessed 9. Oct. 2019.https://idena.navarra.es/Portal/](https://idena.navarra.es/Portal/)
+
+[McFeeters, S. K. (1996). _The use of the Normalized Difference Water Index (NDWI) in the delineation of open water features_. International journal of remote sensing, __17(7)__, 1425-1432.](https://doi.org/10.1080/01431169608948714)
 
 [Pérez-Goya, U., Montesino-SanMartin, M., Militino, A.F., Ugarte, M.D. (2020). _RGISTools: Handling Multiplatform Satellite Images_. R package version 1.0.0. https://CRAN.R-project.org/package=RGISTools](https://CRAN.R-project.org/package=RGISTools)
