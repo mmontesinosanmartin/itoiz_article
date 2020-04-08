@@ -54,10 +54,10 @@ To reproduce the analysis, sign up for the web services of
 [SciHub](https://scihub.copernicus.eu/dhus/#/self-registration) and
 [EarthData](https://urs.earthdata.nasa.gov/users/new). 
 Then, replace the strings `"USERNAME"` and `"PASSWORD"` with your
-own credentials in the `R` code :
+own credentials in the `R` code. Using the different files, you can:
 
  1. [Initialize](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/analyze.R)
- the analysis defining the region of interest and loading the auxiliary data-sets  
+ the study defining the region of interest and loading the auxiliary data-sets  
  2. [Download](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/download.R) 
  surface reflectance imagery from Landsat-8 and Sentinel-2  
  3. [Customize](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/customize.R) 
