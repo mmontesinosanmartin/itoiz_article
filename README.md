@@ -7,15 +7,15 @@ _"Using RGISTools to estimate the water levels in reservoirs, lakes, or floods"_
 
 ## Table of contents
 
- - [Package installation](## Package installation)
- - [Auxiliary data-sets](## Auxiliary data-sets)
- - [R code](## R-code)
- - [References](## References)
+ - [Package installation](# Package-installation)
+ - [Auxiliary data-sets](# Auxiliary-data-sets)
+ - [R code](# R-code)
+ - [References](# References)
 
-## Package installation
+# Package installation
 
-Install the package \texttt{RGISTools} (v1.0.0) (Pérez-Goya et al., 2020)
-running the following command in your \texttt{R} console:
+Install the package `RGISTools` (v1.0.0) (Pérez-Goya et al., 2020)
+running the following command in your `R` console:
 
 ```{r}
 install.packages("RGISTools")
@@ -23,27 +23,27 @@ install.packages("RGISTools")
 
 Find the manual [here](https://cran.r-project.org/web/packages/RGISTools/RGISTools.pdf).
 
-## Auxiliary data-sets 
+# Auxiliary data-sets 
 
 Both datasets are available [here](https://github.com/mmontesinosanmartin/itoiz_article/Data):
 
  - Topographic map of the basin of the reservoir (`altimetry.itoiz`): A
  \texttt{raster} of the terrain's elevation in meters above sea level
- (m.a.s.l.). The `raster` has a resolution of $10 \times 10$ $m^{2}$ and uses
- the EPSG $4326$ coordinate reference system. This data results from the
- rasterization and interpolation of the contour maps available at IDENA's
+ (m.a.s.l.). The `raster` has a resolution of $ 10 \times 10 $ $ m^{2} $
+ and uses the EPSG 4326 coordinate reference system. This data results from
+ the rasterization and interpolation of the contour maps available at IDENA's
  website (IDENA, 2019).
  
  - Water level observations (`obs.itoiz`): A \texttt{data.frame} with the
  daily measurements of the water levels in meters above sea level (m.a.s.l.)
- taken at the dam wall between $2018-01-01$ and $2019-09-01$ (CH Ebro, 2019).
+ taken at the dam wall between `2018-01-01` and `2019-09-01` (CH Ebro, 2019).
 
-## R code
+# R code
 
 To reproduce the analysis, sign up for the web services of 
 [SciHub](https://scihub.copernicus.eu/dhus/#/self-registration) and
 [EarthData](https://urs.earthdata.nasa.gov/users/new). 
-Then, replace the strings \texttt{"USERNAME"} and \texttt{"PASSWORD"} with your
+Then, replace the strings `"USERNAME"` and `"PASSWORD"` with your
 own credentials in the \texttt{R} code :
 
  1. [Initialize](https://github.com/mmontesinosanmartin/itoiz_article/R/initialize.R)
@@ -57,7 +57,7 @@ own credentials in the \texttt{R} code :
  5. [Analyze](https://github.com/mmontesinosanmartin/itoiz_article/R/analyze.R)
  the NDWI to detect the water body and estimate the water levels  
 
-## References
+# References
 
 [CH Ebro (2019), _On-demand data-sets_. Automates Hydrological Information System. Online; accessed 9. Oct. 2019. http://www.saihebro.com/saihebro/](http://www.saihebro.com/saihebro/)
 
