@@ -42,11 +42,11 @@ The `.RData` file provides the following information:
  ![formula](https://render.githubusercontent.com/render/math?math=10%20%5Ctimes%2010%5C%2Cm%5E%7B2%7D)
  and uses the EPSG 4326 coordinate reference system. This data results from
  the rasterization and interpolation of the contour maps available at IDENA's
- website (IDENA, 2019).
+ website (IDENA, 2020).
  
  - Water level observations (`obs.itoiz`): A `data.frame` with the daily
  measurements of the water levels in meters above sea level (m.a.s.l.)
- taken at the dam wall between `2018-01-01` and `2019-09-01` (CH Ebro, 2019).
+ taken at the dam wall between `2018-01-01` and `2019-09-01` (CH Ebro, 2020).
 
 # R code
 
