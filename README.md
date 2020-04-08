@@ -3,7 +3,7 @@
 This repository provides the auxiliary data-sets and R code to reproduce the
 analysis in the paper: 
 _"Using RGISTools to estimate the water levels in reservoirs, lakes, or floods"_
-(Pérez-Goya et al., 2020)
+(Pérez-Goya et al., 2020a)
 
 ## Table of contents
 
@@ -14,12 +14,18 @@ _"Using RGISTools to estimate the water levels in reservoirs, lakes, or floods"_
 
 # Package installation
 
-Install the package `RGISTools` (v1.0.0) (Pérez-Goya et al., 2020)
-running the following command in your `R` console:
+Install `RGISTools`  (Pérez-Goya et al., 2020b) version 1.0.1 running the
+following commands in your `R` console:
 
 ```{r}
+# Install devtools
+install.packages(devtools)
+
+# Load devtools
 library(devtools)
-install_version("RGISTools", version = "1.0.0", repos = "http://cran.us.r-project.org")
+
+# Install RGISTools from github
+install_github("spatialstatisticsupna/RGISTools")
 ```
 
 Find the manual [here](https://cran.r-project.org/web/packages/RGISTools/RGISTools.pdf).
@@ -35,8 +41,8 @@ Datasets are available [here](https://github.com/mmontesinosanmartin/itoiz_artic
  the rasterization and interpolation of the contour maps available at IDENA's
  website (IDENA, 2019).
  
- - Water level observations (`obs.itoiz`): A \texttt{data.frame} with the
- daily measurements of the water levels in meters above sea level (m.a.s.l.)
+ - Water level observations (`obs.itoiz`): A `data.frame` with the daily
+ measurements of the water levels in meters above sea level (m.a.s.l.)
  taken at the dam wall between `2018-01-01` and `2019-09-01` (CH Ebro, 2019).
 
 # R code
@@ -67,3 +73,5 @@ own credentials in the \texttt{R} code :
 [McFeeters, S. K. (1996). _The use of the Normalized Difference Water Index (NDWI) in the delineation of open water features_. International journal of remote sensing, __17(7)__, 1425-1432.](https://doi.org/10.1080/01431169608948714)
 
 [Pérez-Goya, U., Montesino-SanMartin, M., Militino, A.F., Ugarte, M.D. (2020). _RGISTools: Handling Multiplatform Satellite Images_. R package version 1.0.0. https://CRAN.R-project.org/package=RGISTools](https://CRAN.R-project.org/package=RGISTools)
+
+Pérez-Goya, U., Montesino-SanMartin, M., Militino, A.F., Ugarte, M.D. (2020). _Using RGISTools to estimate the water levels in reservoirs, lakes, or floods_. Remote Sensing, (_submitted_)

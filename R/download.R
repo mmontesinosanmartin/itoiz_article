@@ -19,8 +19,8 @@ sres.ls8 <- lsSearch(product = "LANDSAT_8_C1",
                      dates = as.Date("2018-07-01") + seq(0, 304, 1),
                      region = roi.sf,
                      cloudCover = c(0,80),
-                     username = "USERNAME",
-                     password = "PASSWORD")
+                     username = "montesinoman",#"USERNAME",
+                     password = "Mmontesino2019")#"PASSWORD")
 t.srch.ls8 <- Sys.time() - t.st.ls8
 print(t.srch.ls8)
 # Time difference of 4.031832 secs
@@ -32,8 +32,8 @@ sres.sn2 <- senSearch(platform = "Sentinel-2",
                       dates = as.Date("2018-07-01") + seq(0, 304, 1),
                       region = roi.sf,
                       cloudCover = c(0,80),
-                      username = "USERNAME",
-                      password = "PASSWORD")
+                      username = "montesinoman",
+                      password = "Mmontesino2019")
 t.srch.sn2 <- Sys.time() - t.st.sn2
 print(t.srch.sn2)
 # Time difference of 1.917993 secs
@@ -42,9 +42,10 @@ t.srch <- Sys.time() - t.st
 print(t.srch)
 # Time difference of 5.950826 secs
 
-###################################################
-### DOWNLOAD
-###################################################
+###############################################################################
+# DOWNLOAD
+###############################################################################
+
 t.st <- Sys.time()
 
 # Landsat - 8
@@ -54,16 +55,13 @@ lsDownload(searchres = sres.ls8,
            lvl = 2,
            untar = TRUE,
            bFilter = list("band3", "band5", "pixel_qa"),
-           username = "jstatsoft2019",
-           password = "Jstatsoft2019",
+           username = "jstatsoft2019",#"USERNAME",
+           password = "Jstatsoft2019",#"PASSWORD",
            l2rqname = "RQ01",
            AppRoot = wdir)
 t.dwn.ls8 <- Sys.time() - t.st.ls8
 print(t.dwn.ls8)
 # Time difference of 1.742629 hours
-
-# Results available at:
-# https://unavarra-my.sharepoint.com/:u:/g/personal/manuel_montesino_unavarra_es/ERLeCiCl-_dFmN-IwRADZBABAyhfOZqfi2WA6DoUvBWRFQ?e=riILVm
 
 # Sentinel-2
 wdir.sn2 <- file.path(wdir, "Sentinel2")
@@ -71,15 +69,12 @@ t.st.sn2 <- Sys.time()
 senDownload(searchres = sres.sn2,
             unzip = TRUE,
             bFilter = list("B03_10m", "B08_10m", "CLDPRB_20m"),
-            username = "jstatsoft",
-            password = "jstatsoft2019",
+            username = "jstatsoft",#"USERNAME",
+            password = "jstatsoft2019",#"PASSWORD",
             AppRoot = wdir.sn2)
 t.dwn.sn2 <- Sys.time() - t.st.sn2
 print(t.dwn.sn2)
 # Time difference of 26.72983 mins
-
-# Results available at:
-# https://unavarra-my.sharepoint.com/:u:/g/personal/manuel_montesino_unavarra_es/ETn0hSXSi19Fj1S644GS7-UBxX-jx7heB-mxRcN0o7woAg?e=CRXIcx
 
 t.dwn <- Sys.time() - t.st
 print(t.dwn)

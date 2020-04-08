@@ -7,37 +7,64 @@
 # License: Availability of material under 
 # [CC-BY-SA](https://creativecommons.org/licenses/by-sa/2.0/).
 
-###################################################
-### ANALYSIS
-###################################################
+###############################################################################
+# LOAD DATASET
+###############################################################################
+
+# Load
+imgs.ndwi <- list(
+  stack(list.files(file.path(wdir.ls8,"NDWI"), full.names = TRUE)),
+  stack(list.files(file.path(wdir.sn2,"NDWI"), full.names = TRUE)))
+
+# Identify
+names(imgs.ndwi[[1]]) <- paste0(names(imgs.ndwi[[1]]), "_LS8")
+names(imgs.ndwi[[2]]) <- paste0(gsub("10m", "SN2", names(imgs.ndwi[[2]])))
+
+
+# Combine
+imgs.ndwi[[2]] <- projectRaster(imgs.ndwi[[2]], imgs.ndwi[[1]])
+imgs.ndwi <- stack(imgs.ndwi)
+imgs.ndwi <- imgs.ndwi[[order(names(imgs.ndwi))]]
+
+
+# Show
+genPlotGIS(imgs.ndwi[[1:8]],
+           zlim = c(-1,1),
+           tm.raster.r.palette = "BrBG",
+           tm.graticules.labels.size = 1.3,
+           tm.graticules.n.x = 2,
+           tm.graticules.n.y = 2,
+           tm.graticules.labels.rot = c(0,90),
+           panel.label.size = 1)
+
+###############################################################################
+# ANALYZE
+###############################################################################
 t.st <- Sys.time()
 
-################################################### Altimetry
-map.z <- raster::projectRaster(altimetry.itoiz,
-                               crs = st_crs(imgs.ndwi)$proj4string,
-                               method = "bilinear")
-
-
-################################################### Detect
+# Detect shoreline
 shorelns <- lapply(as.list(imgs.ndwi),
                    function(r){
                      water <- raster::rasterToPolygons(clump(r > -0.1),
                                                        dissolve = TRUE)
-                     shores <- sf::st_union(sf::st_as_sfc(water))
-                     bodies <- sf::st_cast(shores, "POLYGON")
-                     areas  <- sf::st_area(bodies)
-                     sf::st_sf(
-                       sf::st_cast(
+                     shores <- st_union(sf::st_as_sfc(water))
+                     bodies <- st_cast(shores, "POLYGON")
+                     areas  <- st_area(bodies)
+                     st_sf(
+                       st_cast(
                          bodies[which(areas == max(areas))],
                          "MULTILINESTRING"))})
-shorelns.z <- raster::stack(lapply(shorelns,
-                                   function(x, map.z){
-                                     mask(map.z, x)},
-                                   map.z))
+
+# Shoreline height
+shorelns.z <- stack(lapply(shorelns,
+                           function(x, map.z){
+                              mask(map.z, x)},
+                            altimetry.itoiz))
+
 level.est <- cellStats(shorelns.z, 'median')
 
 
-################################################### Save
+# Save
 no.imgs <- nlayers(imgs.ndwi)
 results <- data.frame("sat" = character(no.imgs),
                       "date" = structure(integer(no.imgs), class = "Date"),
@@ -50,7 +77,7 @@ results$obs <-  merge(obs.itoiz,results)$level.masl
 results$est <- level.est
 
 
-################################################### Show
+# Show
 par(mfrow = c(1,1))
 plot(results$date, results$est, type = "l", lty = 2, xlab = "Dates",
      ylab = "Level (m.a.s.l.)")
@@ -62,9 +89,9 @@ legend("top", lty = c(1, 2, NA, NA), lwd = c(2, 1, NA, NA),
 abline(h = seq(550,590, 2), lty = 2, col = "grey")
 
 
-###################################################
-### EVALUATION
-###################################################
+###############################################################################
+# EVALUATE
+###############################################################################
 error <- results$obs - results$est
 mean(abs(error), na.rm = TRUE)
 # [1] 1.35971
@@ -78,7 +105,3 @@ cor(results$est, results$obs)
 t.ana <- Sys.time() - t.st
 print(t.ana)
 # Time difference of 11.75622 mins
-
-t.all <- Sys.time() - t.st.all
-print(t.all)
-# Time difference of 2.621552 hours
