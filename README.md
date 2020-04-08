@@ -25,8 +25,18 @@ Find the manual [here](https://cran.r-project.org/web/packages/RGISTools/RGISToo
 
 ## Auxiliary data-sets 
 
- - Topographic map of the basin of the reservoir (IDENA, 2019).
- - [Water level measurements]() (CH Ebro, 2019)
+Both datasets are available [here](https://github.com/mmontesinosanmartin/itoiz_article/Data):
+
+ - Topographic map of the basin of the reservoir (`altimetry.itoiz`): A
+ \texttt{raster} of the terrain's elevation in meters above sea level
+ (m.a.s.l.). The `raster` has a resolution of $10 \times 10$ $m^{2}$ and uses
+ the EPSG $4326$ coordinate reference system. This data results from the
+ rasterization and interpolation of the contour maps available at IDENA's
+ website (IDENA, 2019).
+ 
+ - Water level observations (`obs.itoiz`): A \texttt{data.frame} with the
+ daily measurements of the water levels in meters above sea level (m.a.s.l.)
+ taken at the dam wall between $2018-01-01$ and $2019-09-01$ (CH Ebro, 2019).
 
 ## R code
 

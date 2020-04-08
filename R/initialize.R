@@ -30,4 +30,4 @@ roi.sf <- st_as_sfc(st_as_sf(roi.sfc))
 ###############################################################################
 
 # Data available at:
-load(url("https://github.com/mmontesinosanmartin/itoiz_article/blob/master/Data/auxiliary_data_new.RData"))
+load(url("https://raw.githubusercontent.com/mmontesinosanmartin/itoiz_article/master/Data/auxiliary_data_new.RData"))
