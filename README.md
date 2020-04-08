@@ -32,11 +32,14 @@ Find the manual [here](https://cran.r-project.org/web/packages/RGISTools/RGISToo
 
 # Auxiliary data-sets 
 
-Datasets are available [here](https://github.com/mmontesinosanmartin/itoiz_article/tree/master/Data):
+Datasets are available 
+[here](https://github.com/mmontesinosanmartin/itoiz_article/tree/master/Data).
+The `.RData` file provides the following information:
 
  - Topographic map of the basin of the reservoir (`altimetry.itoiz`): A
- \texttt{raster} of the terrain's elevation in meters above sea level
- (m.a.s.l.). The `raster` has a resolution of 10 \times 10 \quad m^{2}
+ `raster` of the terrain's elevation in meters above sea level (m.a.s.l.). The
+ `raster` has a resolution of 
+ ![formula](https://render.githubusercontent.com/render/math?math=10%20%5Ctimes%2010%5C%2Cm%5E%7B2%7D)
  and uses the EPSG 4326 coordinate reference system. This data results from
  the rasterization and interpolation of the contour maps available at IDENA's
  website (IDENA, 2019).
@@ -51,7 +54,7 @@ To reproduce the analysis, sign up for the web services of
 [SciHub](https://scihub.copernicus.eu/dhus/#/self-registration) and
 [EarthData](https://urs.earthdata.nasa.gov/users/new). 
 Then, replace the strings `"USERNAME"` and `"PASSWORD"` with your
-own credentials in the \texttt{R} code :
+own credentials in the `R` code :
 
  1. [Initialize](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/analyze.R)
  the analysis defining the region of interest and loading the auxiliary data-sets  
@@ -66,12 +69,12 @@ own credentials in the \texttt{R} code :
 
 # References
 
-[CH Ebro (2019), _On-demand data-sets_. Automates Hydrological Information System. Online; accessed 9. Oct. 2019. http://www.saihebro.com/saihebro/](http://www.saihebro.com/saihebro/)
+[CH Ebro (2020), _On-demand data-sets_. Automates Hydrological Information System. Online; accessed 9. Oct. 2019. http://www.saihebro.com/saihebro/](http://www.saihebro.com/saihebro/)
 
-[IDENA (2019), _Web access to geographic information of Navarre_. Government of Navarre. Online; accessed 9. Oct. 2019.https://idena.navarra.es/Portal/](https://idena.navarra.es/Portal/)
+[IDENA (2020), _Web access to geographic information of Navarre_. Government of Navarre. Online; accessed 9. Oct. 2019.https://idena.navarra.es/Portal/](https://idena.navarra.es/Portal/)
 
 [McFeeters, S. K. (1996). _The use of the Normalized Difference Water Index (NDWI) in the delineation of open water features_. International journal of remote sensing, __17(7)__, 1425-1432.](https://doi.org/10.1080/01431169608948714)
 
-[Pérez-Goya, U., Montesino-SanMartin, M., Militino, A.F., Ugarte, M.D. (2020). _RGISTools: Handling Multiplatform Satellite Images_. R package version 1.0.0. https://CRAN.R-project.org/package=RGISTools](https://CRAN.R-project.org/package=RGISTools)
+[Pérez-Goya, U., Montesino-SanMartin, M., Militino, A.F., Ugarte, M.D. (2020a). _RGISTools: Handling Multiplatform Satellite Images_. R package version 1.0.0. https://CRAN.R-project.org/package=RGISTools](https://CRAN.R-project.org/package=RGISTools)
 
-Pérez-Goya, U., Montesino-SanMartin, M., Militino, A.F., Ugarte, M.D. (2020). _Using RGISTools to estimate the water levels in reservoirs, lakes, or floods_. Remote Sensing, (_submitted_)
+Pérez-Goya, U., Montesino-SanMartin, M., Militino, A.F., Ugarte, M.D. (2020b). _Using RGISTools to estimate the water levels in reservoirs, lakes, or floods_. Remote Sensing (_submitted_)
