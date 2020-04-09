@@ -46,7 +46,8 @@ wdir.ls8.cld <- file.path(wdir.ls8, "ls8_cldmask")
 wdir.sn2.cld <- file.path(wdir.sn2, "sn2_cldmask")
 wdir.all.cld <- list(wdir.ls8.cld, wdir.sn2.cld)
 files.cld.msk <- lapply(wdir.all.cld, list.files, full.names = TRUE)
-imgs.cld.msk <- lapply(files.cld.msk, raster::stack)
+imgs.cld.msk <- lapply(files.cld.msk, stack)
+names(imgs.cld.msk) <- c("ls8", "sn2")
 
 # Cloud coverage
 cld.coverage <- lapply(imgs.cld.msk,
