@@ -56,7 +56,7 @@ To reproduce the analysis, sign up for the web services of
 Then, replace the strings `"USERNAME"` and `"PASSWORD"` with your
 own credentials in the `R` code.
 
-<span style="color:red"> __Note for reviewers__: </span> 
+<span style="color:red">__Note for reviewers__:</span> 
 _We created temporary usernames and passwords to facilitate the revieweing process. The credentials are already placed in the code chunks needed._
 
 Using the following `R` code files, you can:
