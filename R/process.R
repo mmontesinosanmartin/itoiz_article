@@ -7,6 +7,9 @@
 # License: Availability of material under 
 # [CC-BY-SA](https://creativecommons.org/licenses/by-sa/2.0/).
 
+wdir.ls8 <- file.path(wdir, "Landsat8")
+wdir.sn2 <- file.path(wdir, "Sentinel2")
+
 ###############################################################################
 # CLOUD MASK DERIVATION
 ###############################################################################
@@ -15,7 +18,7 @@ t.st <- Sys.time()
 # Landsat - 8
 wdir.ls8.mosaic <- file.path(wdir.ls8, "ls8_itoiz")
 t.st.ls8 <- Sys.time()
-lsCloudMsk(src = wdir.ls8.mosaic,
+lsCloudMask(src = wdir.ls8.mosaic,
             out.name = "ls8_cldmask",
             AppRoot = wdir.ls8)
 t.cld.ls8 <- Sys.time() - t.st.ls8

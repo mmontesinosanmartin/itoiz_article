@@ -57,7 +57,7 @@ lsDownload(searchres = sres.ls8,
            bFilter = list("band3", "band5", "pixel_qa"),
            username = "rgistools_test01", #"USERNAME",
            password = "RGISTools_test01", #"PASSWORD",
-           l2rqname = "RQ01",
+           l2rqname = "RQ001",
            AppRoot = wdir)
 t.dwn.ls8 <- Sys.time() - t.st.ls8
 print(t.dwn.ls8)

@@ -26,8 +26,8 @@ library(RGISTools)
 # REGION OF INTEREST
 ###############################################################################
 
-# Replace "D:/example" with the path to own working directory
-wdir <- "D:/example"
+# Working directory
+wdir <- "./Imgs"
 
 roi.bbox <- st_bbox(c(xmin = -1.40,
                       xmax = -1.30,
