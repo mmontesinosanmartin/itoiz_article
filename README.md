@@ -86,7 +86,8 @@ To run the shortcut (1, 4, and 5), follow the instructions below:
 
  1. Download the repository clicking on `Clone or download` > `download zip`.
  2. Unzip the repository in the desired computer location.
- 3. Open the scripts `initialize.R`, `customize.R`, and `analyze.R`.
+ 3. Open the scripts `initialize.R`, `customize.R`, and `analyze.R` inside the
+ `R` folder.
  4. Run the srcipts in the same order.
  
 # References
