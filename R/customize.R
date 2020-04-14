@@ -2,7 +2,7 @@
 # R Code: Using RGISTools to estimate the water levels in reservoirs, lakes,
 # or floods
 ###############################################################################
-# Pérez-Goya, U., Montesino-SanMartin, M., Militino, A.F., Ugarte, M.D.
+# Militino, A.F., Montesino-SanMartin, Pérez-Goya, U.,M., Ugarte, M.D.
 # Public University of Navarre
 # License: Availability of material under 
 # [CC-BY-SA](https://creativecommons.org/licenses/by-sa/2.0/).

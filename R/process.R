@@ -2,11 +2,12 @@
 # R Code: Using RGISTools to estimate the water levels in reservoirs, lakes,
 # or floods
 ###############################################################################
-# Pérez-Goya, U., Montesino-SanMartin, M., Militino, A.F., Ugarte, M.D.
+# Militino, A.F., Montesino-SanMartin, Pérez-Goya, U.,M., Ugarte, M.D.
 # Public University of Navarre
 # License: Availability of material under 
 # [CC-BY-SA](https://creativecommons.org/licenses/by-sa/2.0/).
 
+setwd(dirname(parent.frame(2)$ofile))
 wdir.ls8 <- file.path(wdir, "Landsat8")
 wdir.sn2 <- file.path(wdir, "Sentinel2")
 
