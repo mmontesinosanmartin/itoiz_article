@@ -1,8 +1,8 @@
 # Supplementary materials: Using RGISTools to estimate the water levels in reservoirs, lakes, or floods
 
-This repository provides data-sets and R codes to reproduce the analysis in the paper: 
-_"Using RGISTools to estimate the water levels in reservoirs, lakes, or floods"_
-(Pérez-Goya et al., 2020a)
+This repository provides the data-sets and R codes to reproduce the analysis in the paper: 
+_"Using RGISTools to estimate the water levels in reservoirs and lakes"_
+(Militino et al., 2020a). We encourage downloading and unzipping the entire repository.
 
 ## Table of contents
 
@@ -56,7 +56,7 @@ To reproduce the analysis, sign up for the web services of
 Then, replace the strings `"USERNAME"` and `"PASSWORD"` with your
 own credentials in the `R` code.
 
-> __Note to reviewers__: _We facilitate temporary usernames and passwords to speed up the revieweing process. The credentials are already placed in the appropriate code chunks._
+> __Note to reviewers__: _We facilitate a temporary username and password to speed up the revieweing process. The credentials are already placed in the appropriate code chunks._
 
 With the following `R` code files, you can:
 
@@ -73,15 +73,21 @@ With the following `R` code files, you can:
 
 # Imagery
 
-Steps 1 and 2 require 117 GB of memory space and 3-24 hours to run (depending
+Steps 2 and 3 require 117 GB of memory space and 3-24 hours to run (depending
 on the internet connection speed). The data volumes and running times drop
-considerably in steps 3, 4, and 5 (246MB and XX minutes).
-
-We provide the satellite imagery resulting from step 2 and required to run from
-step 3 onwards [here](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/Imgs).
+considerably in steps 4 and 5 (246MB and XX minutes). Therefore, we provide the
+satellite imagery resulting from step 3
+[here](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/Imgs).
 The folders `.Img/Landsat8/ls8_itoiz` and `.Img/Sentinel2/sn2_itoiz` provide
-the customized series of Landsat-8 and Sentinel-2 secenes respectively. 
+the customized series of Landsat-8 and Sentinel-2 secenes respectively.
 
+You can directly run the scripts 1, 4, and 5 (skipping 2-3) as follows:
+
+ 1. Download the repository clicking on `Clone or download` > `download zip`.
+ 2. Unzip the repository in the desired computer location.
+ 3. Open the scripts `initialize.R`, `customize.R`, and `analyze.R`.
+ 4. Run the srcipts in the same order.
+ 
 # References
 
 [CH Ebro (2020), _On-demand data-sets_. Automates Hydrological Information System. Online; accessed 9. Oct. 2019. http://www.saihebro.com/saihebro/](http://www.saihebro.com/saihebro/)
