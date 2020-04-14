@@ -19,8 +19,8 @@ sres.ls8 <- lsSearch(product = "LANDSAT_8_C1",
                      dates = as.Date("2018-07-01") + seq(0, 304, 1),
                      region = roi.sf,
                      cloudCover = c(0,80),
-                     username = "USERNAME",
-                     password = "PASSWORD")
+                     username = "rgistools_test01", #"USERNAME",
+                     password = "RGISTools_test01") #"PASSWORD")
 t.srch.ls8 <- Sys.time() - t.st.ls8
 print(t.srch.ls8)
 # Time difference of 4.031832 secs
@@ -32,8 +32,8 @@ sres.sn2 <- senSearch(platform = "Sentinel-2",
                       dates = as.Date("2018-07-01") + seq(0, 304, 1),
                       region = roi.sf,
                       cloudCover = c(0,80),
-                      username = "USERNAME",
-                      password = "PASSWORD")
+                      username = "rgistools_test01", #"USERNAME",
+                      password = "RGISTools_test01") #"PASSWORD")
 t.srch.sn2 <- Sys.time() - t.st.sn2
 print(t.srch.sn2)
 # Time difference of 1.917993 secs
@@ -55,8 +55,8 @@ lsDownload(searchres = sres.ls8,
            lvl = 2,
            untar = TRUE,
            bFilter = list("band3", "band5", "pixel_qa"),
-           username = "USERNAME",
-           password = "PASSWORD",
+           username = "rgistools_test01", #"USERNAME",
+           password = "RGISTools_test01", #"PASSWORD",
            l2rqname = "RQ01",
            AppRoot = wdir)
 t.dwn.ls8 <- Sys.time() - t.st.ls8
@@ -69,8 +69,8 @@ t.st.sn2 <- Sys.time()
 senDownload(searchres = sres.sn2,
             unzip = TRUE,
             bFilter = list("B03_10m", "B08_10m", "CLDPRB_20m"),
-            username = "USERNAME",
-            password = "PASSWORD",
+            username = "rgistools_test01", #"USERNAME",
+            password = "RGISTools_test01", #"PASSWORD",
             AppRoot = wdir.sn2)
 t.dwn.sn2 <- Sys.time() - t.st.sn2
 print(t.dwn.sn2)
