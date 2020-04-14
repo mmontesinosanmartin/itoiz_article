@@ -52,7 +52,7 @@ The `.RData` file provides the following information:
 
 To reproduce the analysis, sign up for the web services of 
 [SciHub](https://scihub.copernicus.eu/dhus/#/self-registration) and
-[EarthData](https://urs.earthdata.nasa.gov/users/new). 
+[EarthExplorer](https://ers.cr.usgs.gov/register/). 
 Then, replace the strings `"USERNAME"` and `"PASSWORD"` with your
 own credentials in the `R` code.
 
