@@ -8,7 +8,7 @@
 # [CC-BY-SA](https://creativecommons.org/licenses/by-sa/2.0/).
 
 ###############################################################################
-# LOAD DATASET
+# LOAD NDWI
 ###############################################################################
 
 # Load
@@ -20,12 +20,14 @@ imgs.ndwi <- list(
 names(imgs.ndwi[[1]]) <- paste0(names(imgs.ndwi[[1]]), "_LS8")
 names(imgs.ndwi[[2]]) <- paste0(gsub("10m", "SN2", names(imgs.ndwi[[2]])))
 
-
 # Combine
 imgs.ndwi[[2]] <- projectRaster(imgs.ndwi[[2]], imgs.ndwi[[1]])
 imgs.ndwi <- stack(imgs.ndwi)
 imgs.ndwi <- imgs.ndwi[[order(names(imgs.ndwi))]]
 
+###############################################################################
+# FIGURE - NDWI IMAGES
+###############################################################################
 
 # Show
 genPlotGIS(imgs.ndwi[[1:8]],
@@ -95,16 +97,32 @@ abline(h = seq(550,590, 2), lty = 2, col = "grey")
 ###############################################################################
 # EVALUATE
 ###############################################################################
+# Error
 error <- results$obs - results$est
-mean(abs(error), na.rm = TRUE)
-# [1] 1.35971
-mean(abs(error)[results[,"sat"] == "LS8"], na.rm = TRUE)
-# [1] 2.880557
-mean(abs(error)[results[,"sat"] == "SN2"], na.rm = TRUE)
-# [1] 0.8527607
-cor(results$est, results$obs)
-# [1] 0.9740032
+ls8.i <- which(results[,"sat"] == "LS8")
+sn2.i <- which(results[,"sat"] == "SN2")
 
-t.ana <- Sys.time() - t.st
-print(t.ana)
-# Time difference of 11.75622 mins
+# MAEs
+mean(abs(error), na.rm = TRUE)
+# [1] 1.274928
+mean(abs(error)[ls8.i], na.rm = TRUE)
+# [1] 3.048029
+mean(abs(error)[sn2.i], na.rm = TRUE)
+# [1] 0.8527607
+
+# RMSEs
+sqrt(mean(error^2, na.rm = T))
+# [1] 1.847081
+sqrt(mean(error[ls8.i]^2, na.rm =T))
+# [1] 3.602834
+sqrt(mean(error[sn2.i]^2, na.rm =T))
+# [1] 1.064634
+
+# Correlation
+cor(results$est, results$obs)
+# [1] 0.9727589
+cor(results$est[ls8.i], results$obs[ls8.i])
+# [1] 0.9484461
+cor(results$est[sn2.i], results$obs[sn2.i])
+# [1] 0.991136
+

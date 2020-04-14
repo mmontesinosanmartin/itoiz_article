@@ -7,16 +7,27 @@
 # License: Availability of material under 
 # [CC-BY-SA](https://creativecommons.org/licenses/by-sa/2.0/).
 
-# Replace "D:/example" with the path to own working directory
-wdir <- "D:/example"
+###############################################################################
+# RGISTOOLS INSTALATION
+###############################################################################
 
-# Install the package and load it into R
-# install.packages("RGISTools")
+# Install devtools
+# install.packages(devtools)
+
+# Load devtools
+# library(devtools)
+
+# Install RGISTools from github
+install_github("spatialstatisticsupna/RGISTools")
+
 library(RGISTools)
 
 ###############################################################################
 # REGION OF INTEREST
 ###############################################################################
+
+# Replace "D:/example" with the path to own working directory
+wdir <- "D:/example"
 
 roi.bbox <- st_bbox(c(xmin = -1.40,
                       xmax = -1.30,

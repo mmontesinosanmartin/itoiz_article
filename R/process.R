@@ -15,7 +15,7 @@ t.st <- Sys.time()
 # Landsat - 8
 wdir.ls8.mosaic <- file.path(wdir.ls8, "ls8_itoiz")
 t.st.ls8 <- Sys.time()
-lsCloudMask(src = wdir.ls8.mosaic,
+lsCloudMsk(src = wdir.ls8.mosaic,
             out.name = "ls8_cldmask",
             AppRoot = wdir.ls8)
 t.cld.ls8 <- Sys.time() - t.st.ls8
@@ -57,7 +57,7 @@ cld.coverage <- lapply(imgs.cld.msk,
 names(cld.coverage) <- c("ls8", "sn2")
 
 # Clear-sky
-ls8.clr.imgs  <- which(cld.coverage$ls8 < 0.30)
+ls8.clr.imgs  <- which(cld.coverage$ls8 < 0.20)
 sn2.clr.imgs  <- which(cld.coverage$sn2 < 0.001)
 ls8.clr.dates <- genGetDates(names(imgs.cld.msk$ls8))[ls8.clr.imgs]
 sn2.clr.dates <- genGetDates(names(imgs.cld.msk$sn2))[sn2.clr.imgs]

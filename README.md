@@ -54,7 +54,13 @@ To reproduce the analysis, sign up for the web services of
 [SciHub](https://scihub.copernicus.eu/dhus/#/self-registration) and
 [EarthData](https://urs.earthdata.nasa.gov/users/new). 
 Then, replace the strings `"USERNAME"` and `"PASSWORD"` with your
-own credentials in the `R` code. Using the different files, you can:
+own credentials in the `R` code.
+
+<span style="color:red"> __Note for reviewers__: <\span> 
+We created temporary usernames and passwords to facilitate the revieweing
+process. The credentials are already placed in the code chunks needed. 
+
+Using the following `R` code files, you can:
 
  1. [Initialize](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/initialize.R)
  the study defining the region of interest and loading the auxiliary data-sets  
