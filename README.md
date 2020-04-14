@@ -75,14 +75,14 @@ With the following `R` code files, you can:
 
 Steps 2 and 3 require 117 GB of memory space and 3 hours to run (depending
 on the internet connection speed). The data volumes and running times drop
-considerably in steps 4 and 5 (246MB and XX minutes). Therefore, we provide
+considerably after step 3 (246MB and 20 minutes). Therefore, we provide
 the satellite imagery resulting from step 3
 [here](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/Imgs)
-to jump from step 1 to 4, and skip 2-3. The folders `.Img/Landsat8/ls8_itoiz`
-and `.Img/Sentinel2/sn2_itoiz` provide the customized series of Landsat-8 and
-Sentinel-2 secenes respectively.
+so it is possible to jump from step 1 to 4, skipping 2-3. The folders 
+`.Img/Landsat8/ls8_itoiz` and `.Img/Sentinel2/sn2_itoiz` provide the customized
+series of Landsat-8 and Sentinel-2 secenes respectively.
 
-To run the shortcut (1, 4, and 5) make sure to follow the instructions below:
+To run the shortcut (1, 4, and 5), follow the instructions below:
 
  1. Download the repository clicking on `Clone or download` > `download zip`.
  2. Unzip the repository in the desired computer location.
