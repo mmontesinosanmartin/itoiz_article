@@ -7,7 +7,7 @@
 # License: Availability of material under 
 # [CC-BY-SA](https://creativecommons.org/licenses/by-sa/2.0/).
 
-setwd(dirname(parent.frame(2)$ofile))
+setwd(dirname(dirname(rstudioapi::getActiveDocumentContext()$path)))
 wdir.ls8 <- file.path(wdir, "Landsat8")
 wdir.sn2 <- file.path(wdir, "Sentinel2")
 

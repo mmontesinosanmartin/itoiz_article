@@ -27,7 +27,7 @@ library(RGISTools)
 ###############################################################################
 
 # Working directory
-setwd(dirname(parent.frame(2)$ofile))
+setwd(dirname(dirname(rstudioapi::getActiveDocumentContext()$path)))
 wdir <- "./Imgs"
 
 roi.bbox <- st_bbox(c(xmin = -1.40,
