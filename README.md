@@ -1,7 +1,6 @@
 # Supplementary materials: Using RGISTools to estimate the water levels in reservoirs, lakes, or floods
 
-This repository provides the auxiliary data-sets and R code to reproduce the
-analysis in the paper: 
+This repository provides data-sets and R codes to reproduce the analysis in the paper: 
 _"Using RGISTools to estimate the water levels in reservoirs, lakes, or floods"_
 (Pérez-Goya et al., 2020a)
 
@@ -10,6 +9,7 @@ _"Using RGISTools to estimate the water levels in reservoirs, lakes, or floods"_
  - [Package installation](#Package-installation)
  - [Auxiliary data-sets](#Auxiliary-data-sets)
  - [R code](#R-code)
+ - [Imagery](#Imagery)
  - [References](#References)
 
 # Package installation
@@ -56,20 +56,31 @@ To reproduce the analysis, sign up for the web services of
 Then, replace the strings `"USERNAME"` and `"PASSWORD"` with your
 own credentials in the `R` code.
 
-> __Note to reviewers__: _We created temporary usernames and passwords to facilitate the revieweing process. The credentials are already placed in the code chunks needed._
+> __Note to reviewers__: _We facilitate temporary usernames and passwords to speed up the revieweing process. The credentials are already placed in the appropriate code chunks._
 
-Using the following `R` code files, you can:
+With the following `R` code files, you can:
 
  1. [Initialize](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/initialize.R)
- the study defining the region of interest and loading the auxiliary data-sets  
+ the study defining the region of interest and loading the auxiliary data-sets.  
  2. [Download](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/download.R) 
- surface reflectance imagery from Landsat-8 and Sentinel-2  
+ surface reflectance imagery from Landsat-8 and Sentinel-2.  
  3. [Customize](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/customize.R) 
- the satellite imagery by cropping the region of interest  
+ the satellite imagery by cropping the region of interest.  
  4. [Process](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/process.R) 
- the bands to compute the Normalize Difference Water Index (NDWI)(McFeeters, 1996)  
+ the bands to compute the Normalize Difference Water Index (NDWI)(McFeeters, 1996).  
  5. [Analyze](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/analyze.R)
- the NDWI to detect the water body and estimate the water levels  
+ the NDWI to detect the water body and estimate the water levels.  
+
+# Imagery
+
+Steps 1 and 2 require 117 GB of memory space and 3-24 hours to run (depending
+on the internet connection speed). The data volumes and running times drop
+considerably in steps 3, 4, and 5 (246MB and XX minutes).
+
+We provide the satellite imagery resulting from step 2 and required to run from
+step 3 onwards [here](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/Imgs).
+The folders `.Img/Landsat8/ls8_itoiz` and `.Img/Sentinel2/sn2_itoiz` provide
+the customized series of Landsat-8 and Sentinel-2 secenes respectively. 
 
 # References
 
@@ -81,4 +92,4 @@ Using the following `R` code files, you can:
 
 [Pérez-Goya, U., Montesino-SanMartin, M., Militino, A.F., Ugarte, M.D. (2020a). _RGISTools: Handling Multiplatform Satellite Images_. R package version 1.0.0. https://CRAN.R-project.org/package=RGISTools](https://CRAN.R-project.org/package=RGISTools)
 
-Pérez-Goya, U., Montesino-SanMartin, M., Militino, A.F., Ugarte, M.D. (2020b). _Using RGISTools to estimate the water levels in reservoirs, lakes, or floods_. Remote Sensing (_submitted_)
+Pérez-Goya, U., Montesino-SanMartin, M., Militino, A.F., Ugarte, M.D. (2020b). _Using RGISTools to estimate the water levels in reservoirs and lakes_. Remote Sensing (_submitted_)
