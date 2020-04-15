@@ -50,24 +50,25 @@ t.st <- Sys.time()
 # Detect shoreline
 shorelns <- lapply(as.list(imgs.ndwi),
                    function(r){
-                     water <- raster::rasterToPolygons(clump(r > -0.1),
-                                                       dissolve = TRUE)
-                     shores <- st_union(sf::st_as_sfc(water))
-                     bodies <- st_cast(shores, "POLYGON")
-                     areas  <- st_area(bodies)
-                     st_sf(
-                       st_cast(
-                         bodies[which(areas == max(areas))],
-                         "MULTILINESTRING"))})
+                     thrsh <- ifelse(grepl("LS8",names(r)), -0.16, -0.10)
+                     water <- rasterToPolygons(clump(r > thrsh),dissolve = TRUE)
+                     shors <- st_union(st_as_sfc(water))
+                     bodis <- st_cast(shors, "POLYGON")
+                     areas <- st_area(bodis)
+                     st_sf(st_cast(bodis[which.max(areas)],"MULTILINESTRING"))
+                     }
+                   )
 
 # Shoreline height
-shorelns.z <- stack(lapply(shorelns,
-                           function(x, map.z){
-                              mask(map.z, x)},
-                            altimetry.itoiz))
-
-level.est <- cellStats(shorelns.z, 'median')
-
+shorelns.z <- lapply(shorelns,
+                     function(pol, altimetry.itoiz){
+                       line <- as(as(pol, "Spatial"), "SpatialLines")
+                       cell <- cellFromLine(altimetry.itoiz, line)[[1]]
+                       elvs <- getValues(altimetry.itoiz)[cell]
+                       dnst <- density(elvs, kernel = "epanechnikov", na.rm = T)
+                       dnst$x[which.max(dnst$y)]
+                     }, altimetry.itoiz)
+level.est <- unlist(shorelns.z)
 
 # Save
 no.imgs <- nlayers(imgs.ndwi)
@@ -104,25 +105,25 @@ sn2.i <- which(results[,"sat"] == "SN2")
 
 # MAEs
 mean(abs(error), na.rm = TRUE)
-# [1] 1.274928
+# [1] 0.6141669
 mean(abs(error)[ls8.i], na.rm = TRUE)
-# [1] 3.048029
+# [1] 0.9778734
 mean(abs(error)[sn2.i], na.rm = TRUE)
-# [1] 0.8527607
+# [1] 0.5275701
 
 # RMSEs
 sqrt(mean(error^2, na.rm = T))
-# [1] 1.847081
+# [1] 0.8597601
 sqrt(mean(error[ls8.i]^2, na.rm =T))
-# [1] 3.602834
+# [1] 1.261116
 sqrt(mean(error[sn2.i]^2, na.rm =T))
-# [1] 1.064634
+# [1] 0.7324715
 
 # Correlation
 cor(results$est, results$obs)
-# [1] 0.9727589
+# [1] 0.993631
 cor(results$est[ls8.i], results$obs[ls8.i])
-# [1] 0.9484461
+# [1] 0.9986789
 cor(results$est[sn2.i], results$obs[sn2.i])
 # [1] 0.991136
 
