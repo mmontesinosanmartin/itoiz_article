@@ -1,4 +1,4 @@
-# Supplementary materials: Using RGISTools to estimate the water levels in reservoirs, lakes, or floods
+# Supplementary material: Using RGISTools to estimate water levels in reservoirs and lakes
 
 This repository provides the data-sets and R codes to reproduce the analysis in the paper: 
 _"Using RGISTools to estimate the water levels in reservoirs and lakes"_

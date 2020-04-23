@@ -55,7 +55,7 @@ shorelns <- lapply(as.list(imgs.ndwi),
                      shors <- st_union(st_as_sfc(water))
                      bodis <- st_cast(shors, "POLYGON")
                      areas <- st_area(bodis)
-                     st_sf(st_cast(bodis[which.max(areas)],"MULTILINESTRING"))
+                     st_sf(st_cast(bodis[which.max(areas)],"MULTILINESTRING"), crs = crs(r))
                      }
                    )
 
@@ -88,16 +88,24 @@ par(mfrow = c(1,1))
 plot(results$date, results$est, type = "l", lty = 2, xlab = "Dates",
      ylab = "Level (m.a.s.l.)")
 lines(results$date, results$obs, type = "l",lwd = 2, ylim = c(555, 590))
-points(results$date, results$est, pch = 19, col = as.factor(results$sat))
+points(results$date, results$est, pch = 19, col = c("green", "red")[as.factor(results$sat)])
 legend("top", lty = c(1, 2, NA, NA), lwd = c(2, 1, NA, NA), 
-       pch = c(NA, NA, 19, 19), c("Obs", "DF","LS8", "SN2"),
-       col = c(1, 1, 1, 2), bty = "n", cex = 0.7)
+       pch = c(NA, NA, 19, 19), c("Obs", "Est","LS8", "SN2"),
+       col = c(1, 1, 3, 2), bty = "n")
 abline(h = seq(550,590, 2), lty = 2, col = "grey")
 
 
 ###############################################################################
 # EVALUATE
 ###############################################################################
+# Correlation
+cor(results$est, results$obs)
+# [1] 0.993631
+cor(results$est[ls8.i], results$obs[ls8.i])
+# [1] 0.9986789
+cor(results$est[sn2.i], results$obs[sn2.i])
+# [1] 0.991136
+
 # Error
 error <- results$obs - results$est
 ls8.i <- which(results[,"sat"] == "LS8")
@@ -111,6 +119,14 @@ mean(abs(error)[ls8.i], na.rm = TRUE)
 mean(abs(error)[sn2.i], na.rm = TRUE)
 # [1] 0.5275701
 
+# MAPEs
+mean(abs(error/results$obs), na.rm = TRUE) * 100
+# [1] 0.1074258
+mean(abs(error/results$obs)[ls8.i], na.rm = TRUE) * 100
+# [1] 0.1701685
+mean(abs(error/results$obs)[sn2.i], na.rm = TRUE) * 100
+# [1] 0.09248711
+
 # RMSEs
 sqrt(mean(error^2, na.rm = T))
 # [1] 0.8597601
@@ -119,11 +135,5 @@ sqrt(mean(error[ls8.i]^2, na.rm =T))
 sqrt(mean(error[sn2.i]^2, na.rm =T))
 # [1] 0.7324715
 
-# Correlation
-cor(results$est, results$obs)
-# [1] 0.993631
-cor(results$est[ls8.i], results$obs[ls8.i])
-# [1] 0.9986789
-cor(results$est[sn2.i], results$obs[sn2.i])
-# [1] 0.991136
+
 
