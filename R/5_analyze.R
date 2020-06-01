@@ -30,14 +30,17 @@ imgs.ndwi <- imgs.ndwi[[order(names(imgs.ndwi))]]
 ###############################################################################
 
 # Show
+png(filename = "flood_map_itoiz.png", width = 600, height = 400)
 genPlotGIS(imgs.ndwi[[1:8]],
            zlim = c(-1,1),
            tm.raster.r.palette = "BrBG",
+           tm.raster.r.title = "",
            tm.graticules.labels.size = 1.3,
            tm.graticules.n.x = 2,
            tm.graticules.n.y = 2,
            tm.graticules.labels.rot = c(0,90),
            panel.label.size = 1)
+dev.off()
 
 ###############################################################################
 # ANALYZE
@@ -51,7 +54,7 @@ t.st <- Sys.time()
 # Detect shoreline
 shorelns <- lapply(as.list(imgs.ndwi),
                    function(r){
-                     thrsh <- ifelse(grepl("LS8",names(r)), -0.16, -0.10)
+                     thrsh <- ifelse(grepl("LS8",names(r)), -0.17, -0.10)
                      water <- rasterToPolygons(clump(r > thrsh),dissolve = TRUE)
                      shors <- st_union(st_as_sfc(water))
                      bodis <- st_cast(shors, "POLYGON")
@@ -99,7 +102,7 @@ abline(h = seq(550,590, 2), lty = 2, col = "grey")
 legend("top", lty = c(1, 2, NA, NA), lwd = c(2, 1, NA, NA), 
        pch = c(NA, NA, 19, 19), c("Obs", "Est","LS8", "SN2"),
        col = c(1, 1, 3, 2), bty = "n")
-def.off()
+dev.off()
 
 ###############################################################################
 # EVALUATE
