@@ -86,7 +86,7 @@ To run the anlaysis through the shortcut, please, follow the instructions:
 
  1. Download the repository clicking on `Clone or download` > `download zip`.
  2. Unzip the repository in the desired computer location.
- 3. Open the scripts `initialize.R`, and `analyze.R` inside the `R` folder.
+ 3. Open the scripts `1_initialize.R` and `4_analyze.R` inside the `R` folder.
  4. Run the srcipts in the same order.
  
 # References

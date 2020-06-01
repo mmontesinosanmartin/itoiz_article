@@ -18,7 +18,7 @@
 # library(devtools)
 
 # Install RGISTools from github
-install_github("spatialstatisticsupna/RGISTools")
+# install_github("spatialstatisticsupna/RGISTools")
 
 library(RGISTools)
 
