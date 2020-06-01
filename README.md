@@ -54,7 +54,7 @@ To reproduce the analysis, sign up for the web services of
 [SciHub](https://scihub.copernicus.eu/dhus/#/self-registration) and
 [EarthExplorer](https://ers.cr.usgs.gov/register/). 
 Then, replace the strings `"USERNAME"` and `"PASSWORD"` with your
-own credentials in the `R` code.
+own credentials in the code.
 
 > __Note to reviewers__: _We facilitate a temporary username and password to speed up the revieweing process. The credentials are already placed in the appropriate code chunks._
 
@@ -73,21 +73,20 @@ With the following `R` code files, you can:
 
 # Imagery
 
-Steps 2 and 3 require 117 GB of memory space and 3 hours to run (depending
+Steps 2 and 3 require 117 GB of memory space and several hours to run (depending
 on the internet connection speed). The data volumes and running times drop
 considerably after step 3 (246MB and 20 minutes). Therefore, we provide
 the satellite imagery resulting from step 3
-[here](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/Imgs)
-so it is possible to jump from step 1 to 4, skipping 2-3. The folders 
-`.Img/Landsat8/ls8_itoiz` and `.Img/Sentinel2/sn2_itoiz` provide the customized
-series of Landsat-8 and Sentinel-2 secenes respectively.
+[here](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/Imgs).
+The folders `.Img/Landsat8/ls8_itoiz` and `.Img/Sentinel2/sn2_itoiz` provide
+the customized series of Landsat-8 and Sentinel-2 secenes respectively.Thus,
+it is possible to jump from step 1 to 4, skipping 2-3. 
 
-To run the shortcut (1, 4, and 5), follow the instructions below:
+To run the anlaysis through the shortcut, please, follow the instructions:
 
  1. Download the repository clicking on `Clone or download` > `download zip`.
  2. Unzip the repository in the desired computer location.
- 3. Open the scripts `initialize.R`, `customize.R`, and `analyze.R` inside the
- `R` folder.
+ 3. Open the scripts `initialize.R`, and `analyze.R` inside the `R` folder.
  4. Run the srcipts in the same order.
  
 # References
