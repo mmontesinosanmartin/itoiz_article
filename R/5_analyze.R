@@ -42,6 +42,7 @@ genPlotGIS(imgs.ndwi[[1:8]],
 ###############################################################################
 # ANALYZE
 ###############################################################################
+
 # install.packages("igraph")
 library(igraph)
 
@@ -82,22 +83,32 @@ results$date <- genGetDates(names(imgs.ndwi))
 results$obs <-  merge(obs.itoiz,results)$level.masl
 results$est <- level.est
 
+###############################################################################
+# FIGURE - WATER LEVEL
+###############################################################################
 
 # Show
+png(filename = "water_level_itoiz.png", width = 400, height = 400)
 par(mfrow = c(1,1))
-plot(results$date, results$est, type = "l", lty = 2, xlab = "Dates",
+plot(results$date, results$obs,
+     type = "l",lwd = 2, ylim = c(557, 585),
+     xlab = "Dates",
      ylab = "Level (m.a.s.l.)")
-lines(results$date, results$obs, type = "l",lwd = 2, ylim = c(555, 590))
 points(results$date, results$est, pch = 19, col = c("green", "red")[as.factor(results$sat)])
+abline(h = seq(550,590, 2), lty = 2, col = "grey")
 legend("top", lty = c(1, 2, NA, NA), lwd = c(2, 1, NA, NA), 
        pch = c(NA, NA, 19, 19), c("Obs", "Est","LS8", "SN2"),
        col = c(1, 1, 3, 2), bty = "n")
-abline(h = seq(550,590, 2), lty = 2, col = "grey")
-
+def.off()
 
 ###############################################################################
 # EVALUATE
 ###############################################################################
+# Error
+error <- results$obs - results$est
+ls8.i <- which(results[,"sat"] == "LS8")
+sn2.i <- which(results[,"sat"] == "SN2")
+
 # Correlation
 cor(results$est, results$obs)
 # [1] 0.993631
@@ -105,11 +116,6 @@ cor(results$est[ls8.i], results$obs[ls8.i])
 # [1] 0.9986789
 cor(results$est[sn2.i], results$obs[sn2.i])
 # [1] 0.991136
-
-# Error
-error <- results$obs - results$est
-ls8.i <- which(results[,"sat"] == "LS8")
-sn2.i <- which(results[,"sat"] == "SN2")
 
 # MAEs
 mean(abs(error), na.rm = TRUE)
