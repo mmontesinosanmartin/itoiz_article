@@ -6,7 +6,7 @@ _"Using RGISTools to estimate the water levels in reservoirs and lakes"_
 
 <p align="center">
   <img align="center" width="500" src="./Imgs/itoiz_reservoir.png" alt="Itoiz reservoir">
-  <p align="center"> Fig.: A water reservoir in Spain (Itoiz) and its sorrounding area </p>
+  <p align="center"> Fig.: Itoiz - A water reservoir in Spain and its sorrounding area. </p>
 </p>
 
 ## Table of contents
