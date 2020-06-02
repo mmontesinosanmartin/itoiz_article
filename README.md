@@ -78,7 +78,7 @@ on the internet connection speed). The data volumes and running times drop
 considerably after step 3 (246MB and 20 minutes). Therefore, we provide
 the satellite imagery resulting from step 3
 [here](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/Imgs).
-The folders `.Img/Landsat8/ls8_itoiz` and `.Img/Sentinel2/sn2_itoiz` provide
+The folders `./Img/Landsat8/ls8_itoiz` and `./Img/Sentinel2/sn2_itoiz` provide
 the customized series of Landsat-8 and Sentinel-2 secenes respectively.Thus,
 it is possible to jump from step 1 to 4, skipping 2-3. 
 
@@ -86,7 +86,7 @@ To run the anlaysis through the shortcut, please, follow the instructions:
 
  1. Download the repository clicking on `Clone or download` > `download zip`.
  2. Unzip the repository in the desired computer location.
- 3. Open the scripts `R/1_initialize.R`, `R/4_process.R`, and `R/5_analyze.R` .
+ 3. Open the scripts `./R/1_initialize.R`, `./R/4_process.R`, and `./R/5_analyze.R` .
  4. Run the srcipts in order.
  
 # References
