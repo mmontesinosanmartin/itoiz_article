@@ -1,6 +1,5 @@
 ###############################################################################
-# R Code: Using RGISTools to estimate the water levels in reservoirs, lakes,
-# or floods
+# R Code: Using RGISTools to estimate the water levels in reservoirs and lakes
 ###############################################################################
 # Militino, A.F., Montesino-SanMartin, Pérez-Goya, U.,M., Ugarte, M.D.
 # Public University of Navarre
@@ -97,7 +96,7 @@ save(altimetry.itoiz,
      shorelns,
      shorelns.z,
      results,
-     file = "results_analysis.RData")
+     file = "./Data/results_analysis.RData")
 
 ###############################################################################
 # FIGURE - WATER LEVEL
