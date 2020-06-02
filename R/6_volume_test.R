@@ -6,11 +6,19 @@
 # License: Availability of material under 
 # [CC-BY-SA](https://creativecommons.org/licenses/by-sa/2.0/).
 
-load(url("https://raw.githubusercontent.com/mmontesinosanmartin/itoiz_article/master/Data/results_analysis.RData"))
+###############################################################################
+# PREPARATION
+###############################################################################
 
+# install lakemorpho
+# install.packages(lakemorpho)
 
+# load libraries
+library(RGISTools)
 library(lakemorpho)
 
+# load results
+load(url("https://raw.githubusercontent.com/mmontesinosanmartin/itoiz_article/master/Data/results_analysis.RData"))
 
 alturasUTM<-projectRaster(altimetry.itoiz,crs=CRS("+init=epsg:25830")) 
   
@@ -26,6 +34,10 @@ b6<-array(0,length(sec)) ## Water surface ##
 a0<-lapply(shorelns,function(r){as(r,"Spatial")})
 a1<-lapply(a0,function(r){spTransform(r,CRS("+init=epsg:25830"))})
 a1.coor<-lapply(a1,function(r){coordinates(r)})
+
+###############################################################################
+# ANALYSIS
+###############################################################################
 
 for (i in 1:length(sec)) { 
 a2<-a1[[i]]
@@ -61,15 +73,25 @@ b0<-data.frame(b2,b5,b6,indice)
 b1<-aggregate(b0,list(indice),mean)
 b1$mes<-mes
 
+###############################################################################
+# REPRESENTATION
+###############################################################################
+
 par(mfrow=c(2,2))
+
+# volume
 plot(b1[,2],type="l",main="Water Volume (hm3)",axes=F,ylab="",xlab="")
 axis(1,1:9,mes)
 axis(2)
 box()
+
+# length shoreline
 plot(b1[,3],type="l",main="Length Shoreline (km)",axes=F,ylab="",xlab="")
 axis(1,1:9,mes)
 axis(2)
 box()
+
+# water surface
 plot(b1[,4],type="l",main="Water Surface (ha)",axes=F,ylab="",xlab="")
 axis(1,1:9,mes)
 axis(2)

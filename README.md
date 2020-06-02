@@ -1,19 +1,19 @@
 # Supplementary material: Using RGISTools to estimate water levels in reservoirs and lakes
 
-<p align="center">
-<img align="center" width="500" src="./Imgs/itoiz_reservoir.png">
-</p>
-
 This repository provides the data-sets and R codes to reproduce the analysis in the paper: 
 _"Using RGISTools to estimate the water levels in reservoirs and lakes"_
 (Militino et al., 2020a). We encourage downloading and unzipping the entire repository.
+
+<p align="center">
+<img align="center" width="500" src="./Imgs/itoiz_reservoir.png">
+</p>
 
 ## Table of contents
 
  - [Package installation](#Package-installation)
  - [Auxiliary data-sets](#Auxiliary-data-sets)
  - [R code](#R-code)
- - [Imagery](#Imagery)
+ - [Code in a hurry](#Code-in-a-hurry)
  - [References](#References)
 
 # Package installation
@@ -75,7 +75,7 @@ With the following `R` code files, you can:
  5. [Analyze](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/5_analyze.R)
  the NDWI to detect the water body and estimate the water levels.  
 
-# Imagery
+# Code in a hurry
 
 Steps 2 and 3 require 117 GB of memory space and several hours to run (depending
 on the internet connection speed). The data volumes and running times drop
