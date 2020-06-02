@@ -103,7 +103,7 @@ save(altimetry.itoiz,
 ###############################################################################
 
 # Show
-png(filename = "levels.png", width = 400, height = 400)
+png(filename = "levels.png", width = 500, height = 400)
 par(mfrow = c(1,1))
 plot(results$date, results$obs,
      type = "l",lwd = 2, ylim = c(557, 585),
@@ -111,9 +111,9 @@ plot(results$date, results$obs,
      ylab = "Level (m.a.s.l.)")
 points(results$date, results$est, pch = 19, col = c("green", "red")[as.factor(results$sat)])
 abline(h = seq(550,590, 2), lty = 2, col = "grey")
-legend("top", lty = c(1, 2, NA, NA), lwd = c(2, 1, NA, NA), 
-       pch = c(NA, NA, 19, 19), c("Obs", "Est","LS8", "SN2"),
-       col = c(1, 1, 3, 2), bty = "n")
+legend("top", lty = c(1, NA, NA), lwd = c(2, 1, NA, NA), 
+       pch = c(NA, 19, 19), c("Obs","LS8", "SN2"),
+       col = c(1, 3, 2), bty = "n")
 dev.off()
 
 ###############################################################################
