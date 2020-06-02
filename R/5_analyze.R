@@ -30,7 +30,7 @@ imgs.ndwi <- imgs.ndwi[[order(names(imgs.ndwi))]]
 ###############################################################################
 
 # Show
-png(filename = "flood_map_itoiz.png", width = 600, height = 400)
+# png(filename = "ndwi.png", width = 600, height = 400)
 genPlotGIS(imgs.ndwi[[1:8]],
            zlim = c(-1,1),
            tm.raster.r.palette = "BrBG",
@@ -40,7 +40,7 @@ genPlotGIS(imgs.ndwi[[1:8]],
            tm.graticules.n.y = 2,
            tm.graticules.labels.rot = c(0,90),
            panel.label.size = 1)
-dev.off()
+# dev.off()
 
 ###############################################################################
 # ANALYZE
@@ -54,7 +54,7 @@ t.st <- Sys.time()
 # Detect shoreline
 shorelns <- lapply(as.list(imgs.ndwi),
                    function(r){
-                     thrsh <- ifelse(grepl("LS8",names(r)), -0.17, -0.10)
+                     thrsh <- ifelse(grepl("LS8",names(r)), -0.16, -0.10)
                      water <- rasterToPolygons(clump(r > thrsh),dissolve = TRUE)
                      shors <- st_union(st_as_sfc(water))
                      bodis <- st_cast(shors, "POLYGON")
@@ -74,7 +74,7 @@ shorelns.z <- lapply(shorelns,
                      }, altimetry.itoiz)
 level.est <- unlist(shorelns.z)
 
-# Save
+# Store
 no.imgs <- nlayers(imgs.ndwi)
 results <- data.frame("sat" = character(no.imgs),
                       "date" = structure(integer(no.imgs), class = "Date"),
@@ -86,12 +86,25 @@ results$date <- genGetDates(names(imgs.ndwi))
 results$obs <-  merge(obs.itoiz,results)$level.masl
 results$est <- level.est
 
+# Save:
+# Elevations
+# NDWI images
+# Shorelines
+# Shoreline elevations
+# Results
+save(altimetry.itoiz,
+     imgs.ndwi,
+     shorelns,
+     shorelns.z,
+     results,
+     file = "results_analysis.RData")
+
 ###############################################################################
 # FIGURE - WATER LEVEL
 ###############################################################################
 
 # Show
-png(filename = "water_level_itoiz.png", width = 400, height = 400)
+png(filename = "levels.png", width = 400, height = 400)
 par(mfrow = c(1,1))
 plot(results$date, results$obs,
      type = "l",lwd = 2, ylim = c(557, 585),
@@ -112,37 +125,26 @@ error <- results$obs - results$est
 ls8.i <- which(results[,"sat"] == "LS8")
 sn2.i <- which(results[,"sat"] == "SN2")
 
-# Correlation
-cor(results$est, results$obs)
-# [1] 0.993631
-cor(results$est[ls8.i], results$obs[ls8.i])
-# [1] 0.9986789
-cor(results$est[sn2.i], results$obs[sn2.i])
-# [1] 0.991136
-
 # MAEs
 mean(abs(error), na.rm = TRUE)
-# [1] 0.6141669
+# [1] 0.6563728
 mean(abs(error)[ls8.i], na.rm = TRUE)
-# [1] 0.9778734
+# [1] 1.042781
 mean(abs(error)[sn2.i], na.rm = TRUE)
 # [1] 0.5275701
 
 # MAPEs
 mean(abs(error/results$obs), na.rm = TRUE) * 100
-# [1] 0.1074258
+# [1] 0.1150403
 mean(abs(error/results$obs)[ls8.i], na.rm = TRUE) * 100
-# [1] 0.1701685
+# [1] 0.1826999
 mean(abs(error/results$obs)[sn2.i], na.rm = TRUE) * 100
 # [1] 0.09248711
 
 # RMSEs
 sqrt(mean(error^2, na.rm = T))
-# [1] 0.8597601
+# [1] 0.9037942
 sqrt(mean(error[ls8.i]^2, na.rm =T))
-# [1] 1.261116
+# [1] 1.287568
 sqrt(mean(error[sn2.i]^2, na.rm =T))
 # [1] 0.7324715
-
-
-
