@@ -5,7 +5,7 @@ _"Using RGISTools to estimate the water levels in reservoirs and lakes"_
 (Militino et al., 2020a). We encourage downloading and unzipping the entire repository.
 
 <p align="center">
-<img align="center" width="500" src="./Imgs/itoiz_reservoir.png" title = "Topographic map of Itoiz, a water reservoir in Spain, and its sorrounding area>
+<img align="center" width="500" src="./Imgs/itoiz_reservoir.png" title="Topographic map of Itoiz, a water reservoir in Spain, and its sorrounding area>
 </p>
 
 
