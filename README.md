@@ -1,7 +1,7 @@
 # Supplementary material: Using RGISTools to estimate water levels in reservoirs and lakes
 
 <p align="center">
-<img align="center" width="400" src="./Imgs/itoiz_reservoir.png">
+<img align="center" width="500" src="./Imgs/itoiz_reservoir.png">
 </p>
 
 This repository provides the data-sets and R codes to reproduce the analysis in the paper: 
