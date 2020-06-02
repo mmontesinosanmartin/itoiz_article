@@ -6,6 +6,9 @@
 # License: Availability of material under 
 # [CC-BY-SA](https://creativecommons.org/licenses/by-sa/2.0/).
 
+load(url("https://raw.githubusercontent.com/mmontesinosanmartin/itoiz_article/master/Data/results_analysis.RData"))
+
+
 library(lakemorpho)
 
 
