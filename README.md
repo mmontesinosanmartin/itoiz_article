@@ -1,5 +1,9 @@
 # Supplementary material: Using RGISTools to estimate water levels in reservoirs and lakes
 
+<p align=center>
+![Topographic map of Itoiz, a water reservoir, and its surrounding area](./Imgs/itoiz_reservoir.png){width=50% height=50%}
+</p>
+
 This repository provides the data-sets and R codes to reproduce the analysis in the paper: 
 _"Using RGISTools to estimate the water levels in reservoirs and lakes"_
 (Militino et al., 2020a). We encourage downloading and unzipping the entire repository.
