@@ -14,7 +14,7 @@ _"Using RGISTools to estimate the water levels in reservoirs and lakes"_
 
 # Package installation
 
-Install `RGISTools`  (Pérez-Goya et al., 2020b) version 1.0.1 running the
+Install `RGISTools`  (Pérez-Goya et al., 2020b) version 1.0.2 running the
 following commands in your `R` console:
 
 ```{r}
