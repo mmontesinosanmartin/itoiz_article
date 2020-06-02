@@ -60,15 +60,15 @@ own credentials in the code.
 
 With the following `R` code files, you can:
 
- 1. [Initialize](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/initialize.R)
+ 1. [Initialize](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/1_initialize.R)
  the study defining the region of interest and loading the auxiliary data-sets.  
- 2. [Download](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/download.R) 
+ 2. [Download](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/2_download.R) 
  surface reflectance imagery from Landsat-8 and Sentinel-2.  
- 3. [Customize](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/customize.R) 
+ 3. [Customize](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/3_customize.R) 
  the satellite imagery by cropping the region of interest.  
- 4. [Process](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/process.R) 
+ 4. [Process](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/4_process.R) 
  the bands to compute the Normalize Difference Water Index (NDWI)(McFeeters, 1996).  
- 5. [Analyze](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/analyze.R)
+ 5. [Analyze](https://github.com/mmontesinosanmartin/itoiz_article/blob/master/R/5_analyze.R)
  the NDWI to detect the water body and estimate the water levels.  
 
 # Imagery
